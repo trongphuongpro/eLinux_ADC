@@ -20,7 +20,7 @@ ADC::ADC(int pin) {
 	this->callbackArgument = NULL;
 
 	ostringstream s;
-	s << "in_voltage_" << pin << "_raw";
+	s << "in_voltage" << pin << "_raw";
 
 	this->name = s.str();
 	this->path = ADC_PATH + this->name;

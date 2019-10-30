@@ -16,7 +16,7 @@ int main() {
 
 	while (1) {
 		cout << "Value: " << pot.read() << endl;
-		sleep(5);
+		sleep(1);
 	}
 }
 
