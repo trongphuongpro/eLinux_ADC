@@ -30,7 +30,7 @@ private:
 	bool threadRunning = false;
 	ADC::TRIGGER_MODE triggerMode = NONE;
 	
-	std::string name, path;
+	std::string path;
 
 	CallbackType callbackFunction;
 	void* callbackArgument;

@@ -2,7 +2,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/epoll.h>
@@ -19,11 +18,7 @@ ADC::ADC(int pin) {
 	this->callbackFunction = NULL;
 	this->callbackArgument = NULL;
 
-	ostringstream s;
-	s << "in_voltage" << pin << "_raw";
-
-	this->name = s.str();
-	this->path = ADC_PATH + this->name;
+	this->path = string(ADC_PATH) + "in_voltage" + to_string(pin) + "_raw";
 }
 
 
