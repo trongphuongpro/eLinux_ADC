@@ -10,7 +10,7 @@ void alarm(void*);
 int main() {
 	ADC pot(0);
 
-	pot.setTriggerMode(HIGHER);
+	pot.setTriggerMode(ADC::HIGHER);
 	pot.setTriggerLevel(3000);
 	pot.onTrigger(alarm);
 

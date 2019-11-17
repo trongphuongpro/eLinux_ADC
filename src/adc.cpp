@@ -15,7 +15,7 @@ namespace BBB {
 ADC::ADC(int pin) {
 	this->pin = pin;
 	this->threadRunning = false;
-	this->triggerMode = NONE;
+	this->triggerMode = ADC::NONE;
 	this->callbackFunction = NULL;
 	this->callbackArgument = NULL;
 
@@ -42,7 +42,7 @@ int ADC::read() {
 }
 
 
-void ADC::setTriggerMode(TRIGGER_MODE mode) {
+void ADC::setTriggerMode(ADC::TRIGGER_MODE mode) {
 	this->triggerMode = mode;
 }
 
@@ -92,8 +92,8 @@ void* threadedPoll(void *object) {
 	while (adc->threadRunning) {
 		int value = adc->read();
 
-		if ((adc->triggerMode == LOWER && value < adc->triggerLevel)
-			|| (adc->triggerMode == HIGHER && value > adc->triggerLevel)) {
+		if ((adc->triggerMode == ADC::LOWER && value < adc->triggerLevel)
+			|| (adc->triggerMode == ADC::HIGHER && value > adc->triggerLevel)) {
 			adc->callbackFunction(adc->callbackArgument);
 		}
 	}

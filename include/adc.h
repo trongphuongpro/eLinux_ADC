@@ -9,17 +9,17 @@ namespace BBB {
 
 typedef void (*CallbackType)(void*);
 
-enum TRIGGER_MODE {NONE, LOWER, HIGHER};
-
 
 class ADC {
 public:
+	enum TRIGGER_MODE {NONE, LOWER, HIGHER};
+
 	ADC(int pin);
 	~ADC();
 
 	virtual int getPin();
 	virtual int read();
-	virtual void setTriggerMode(TRIGGER_MODE mode);
+	virtual void setTriggerMode(ADC::TRIGGER_MODE mode);
 	virtual void setTriggerLevel(int value);
 	virtual int onTrigger(CallbackType, void* arg=NULL);
 	virtual void stopTrigger();
@@ -28,7 +28,7 @@ private:
 	int pin;
 	int triggerLevel;
 	bool threadRunning = false;
-	TRIGGER_MODE triggerMode = NONE;
+	ADC::TRIGGER_MODE triggerMode = NONE;
 	
 	std::string name, path;
 
