@@ -14,7 +14,7 @@ namespace BBB {
 ADC::ADC(int pin) {
 	this->pin = pin;
 	this->threadRunning = false;
-	this->triggerMode = ADC::NONE;
+	this->triggerMode = NONE;
 	this->callbackFunction = NULL;
 	this->callbackArgument = NULL;
 
@@ -37,7 +37,7 @@ int ADC::read() {
 }
 
 
-void ADC::setTriggerMode(ADC::TRIGGER_MODE mode) {
+void ADC::setTriggerMode(TRIGGER_MODE mode) {
 	this->triggerMode = mode;
 }
 

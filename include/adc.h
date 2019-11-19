@@ -19,7 +19,7 @@ public:
 
 	virtual int getPin();
 	virtual int read();
-	virtual void setTriggerMode(ADC::TRIGGER_MODE mode);
+	virtual void setTriggerMode(TRIGGER_MODE mode);
 	virtual void setTriggerLevel(int value);
 	virtual int onTrigger(CallbackType, void* arg=NULL);
 	virtual void stopTrigger();
@@ -28,7 +28,7 @@ private:
 	int pin;
 	int triggerLevel;
 	bool threadRunning = false;
-	ADC::TRIGGER_MODE triggerMode = NONE;
+	TRIGGER_MODE triggerMode = NONE;
 	
 	std::string path;
 
